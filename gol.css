@@ -5,8 +5,14 @@
   border-radius: 15px;
 }
 
+#options {
+  padding-left: 100px;
+  padding-top: 10px;
+}
+
 #board {
-  padding: 50px;
+  padding-left: 50px;
+  padding-top: 25px;
 }
 
 .row {
