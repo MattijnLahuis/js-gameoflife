@@ -1,9 +1,10 @@
 (function() {
   'use strict'
 
-  $(document).ready(function() {
-    var X = 20;
-    var Y = 20;
+  var X = 10;
+  var Y = 10;
+
+  function generateBoard() {
 
     for(var i=0; i<X; i++) {
       var row = $('<div></div>', {
@@ -21,6 +22,35 @@
       }
 
       $('#board').append(row);
+
     }
+  }
+
+  function runGame() {
+    setInterval(function() {
+      var boardValues = [];
+      for(var i=0; i<X; i++) {
+        var row = [];
+        for(var j=0; j<Y; j++) {
+          if($(`#cell-${i}-${j}`).hasClass('alive')) {
+            row.push(false);
+          } else {
+            row.push(true);
+          }
+          $(`#cell-${i}-${j}`).toggleClass('alive');
+        }
+        boardValues.push(row);
+      }
+      console.log(boardValues);
+
+
+    }, 2000)
+  }
+
+
+
+  $(document).ready(function() {
+    generateBoard();
+    runGame();
   });
 })();
