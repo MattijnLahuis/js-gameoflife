@@ -47,12 +47,14 @@ function runGame() {
       var row = [];
       for(var j=0; j<Y; j++) {
         if($(`#cell-${i}-${j}`).hasClass('alive')) {
-          row.push(false);
-        } else {
           row.push(true);
+        } else {
+          if(numberOfNeighbors(i,j) === 3) {
+            row.push(true);
+          } else {
+            row.push(false);
+          }
         }
-
-        console.log(i + "-" + j + " has " + numberOfNeighbors(i,j) + " neighbors");
       }
       boardValues.push(row);
     }
