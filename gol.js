@@ -46,10 +46,18 @@ function runGame() {
     for(var i=0; i<X; i++) {
       var row = [];
       for(var j=0; j<Y; j++) {
+        var neighbors = numberOfNeighbors(i,j);
+
         if($(`#cell-${i}-${j}`).hasClass('alive')) {
-          row.push(true);
+          //'death by isolation' rule
+          if(neighbors < 2 ) {
+            row.push(false);
+          } else {
+            row.push(true);
+          }
         } else {
-          if(numberOfNeighbors(i,j) === 3) {
+          //'birth' rule
+          if(neighbors === 3) {
             row.push(true);
           } else {
             row.push(false);
