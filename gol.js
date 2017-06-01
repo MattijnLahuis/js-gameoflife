@@ -37,8 +37,8 @@
   });
 })();
 
-var X = 100;
-var Y = 100;
+var X = 10;
+var Y = 10;
 
 function runGame() {
   setInterval(function() {
