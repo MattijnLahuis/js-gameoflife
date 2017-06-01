@@ -37,11 +37,11 @@
   });
 })();
 
-var X = 10;
-var Y = 10;
+var X = 100;
+var Y = 100;
 
 function runGame() {
-  // setInterval(function() {
+  setInterval(function() {
     var boardValues = [];
     for(var i=0; i<X; i++) {
       var row = [];
@@ -49,8 +49,8 @@ function runGame() {
         var neighbors = numberOfNeighbors(i,j);
 
         if($(`#cell-${i}-${j}`).hasClass('alive')) {
-          //'death by isolation' rule
-          if(neighbors < 2 ) {
+          //'death by isolation' rule || 'death by overcrowding' rule
+          if(neighbors < 2 || neighbors > 3) {
             row.push(false);
           } else {
             row.push(true);
@@ -80,7 +80,7 @@ function runGame() {
       }
     }
 
-  // }, 2000)
+  }, 1000)
 }
 
 function numberOfNeighbors(x, y) {
