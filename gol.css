@@ -1,0 +1,25 @@
+#game {
+  width: 1200px;
+  height: 800px;
+  border: 1px dashed black;
+  border-radius: 15px;
+}
+
+#board {
+  padding: 50px;
+}
+
+.row {
+  float: left;
+}
+
+.cell {
+  background-color: #fff;
+  width: 15px;
+  height: 15px;
+  border: 1px solid black;
+}
+
+.alive {
+  background-color: #bdbdbd; /*grey*/
+}
